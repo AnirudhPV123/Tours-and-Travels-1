@@ -1,0 +1,172 @@
+.experience {
+    width: 100%;
+    height: 65vh;
+    padding-top:10vh;
+    background-color: rgb(247, 247, 247);
+}
+
+.experience-box {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    padding-top: 4vh;
+    flex-wrap: wrap;
+}
+
+.experience-desc {
+    flex-basis: 50%;
+}
+
+.experience-image {
+    flex-basis: 50%;
+}
+
+.desc-wrap {
+    width: 80%;
+    height: fit-content;
+}
+
+.experience-desc h4 {
+    font-size: 25px;
+    color: rgb(255, 115, 0);
+    font-family: 'Dancing Script', cursive;
+}
+
+.experience-desc h1 {
+    font-size: 35px;
+    padding-top: 20px;
+    font-weight: 400;
+
+}
+
+.experience-desc p {
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 23px;
+    padding-top: 20px;
+}
+
+.rate-row {
+    display: flex;
+}
+
+
+.rate-col h3 {
+    width: 72px;
+    height: 46px;
+    padding-top: 22px;
+    text-align: center;
+    margin: auto;
+    background: var(--secondary-color);
+    color: #fff;
+    border-radius: 15px 5px 15px 5px;
+margin: 35px 35px 10px;
+
+
+}
+
+.rate-col h6{
+    font-size: 16px;
+}
+
+.rate-col{
+    text-align: center;
+}
+
+/* .experience-image img{
+    width: 90%;
+    height: auto;
+    margin-left: 6%;
+    box-shadow: 0px 10px 20px -2px var(--secondary-color);
+
+} */
+
+.experience-image img{
+    width: 70%;
+    height: auto;
+    margin-left: 15%;
+}
+
+@media screen and (min-width:400px) and (max-width:1200px) {
+    .experience-desc {
+        flex-basis: 100%;
+    }
+    .experience-desc h1 {
+        font-size: 33px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .experience-desc p {
+        font-size: 17px;
+    line-height: 23px;
+        padding-top: 45px;
+    }
+    .experience-image {
+        flex-basis: 100%;
+        padding-top: 40px;
+    }
+    .experience{
+        height: 90vh;
+    }
+    .desc-wrap{
+        width: 100%;
+    margin: auto;
+    }
+    .rate-row{
+        margin-left: 15%;
+    }  
+}
+
+
+
+@media screen and (max-width:400px) {
+    .experience-desc {
+        flex-basis: 100%;
+    }
+    .experience-desc h1 {
+        font-size: 25px;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .experience-desc p {
+        font-size: 15px;
+        line-height: 20px;
+        padding-top: 45px;
+    }
+    .experience-image {
+        flex-basis: 100%;
+        padding-top: 40px;
+    }
+    .experience{
+        height: 90vh;
+    }
+    .desc-wrap{
+        width: 95%;
+    }
+    .rate-row{
+        margin-left: unset;
+    }
+    .rate-row h3{
+        width: 62px;
+        height: 39px;
+        padding-top: 15px;
+        margin: 25px 23px 10px;
+    }
+    .rate-col h6{
+        font-size: 13px;
+    }
+    .experience-image img{
+width: 100%;
+margin: auto;
+margin-left: unset;
+    }   
+}
+
+@media screen and (min-width:1500px) {
+        .experience-image img{
+width: 60%;
+
+    } 
+}
+
+

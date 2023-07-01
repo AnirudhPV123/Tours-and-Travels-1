@@ -1,0 +1,125 @@
+.login{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    height: 85vh;
+    align-items: center;
+
+}
+
+.login-box{
+    width: 70%;
+    height: fit-content;
+    box-shadow: 0px 10px 20px 3px rgb(240, 240, 240);
+    display: flex;
+}
+
+.login-image{
+    flex-basis: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-image img{
+    width: 90%;
+    height: auto;
+}
+
+.login-part{
+    flex-basis: 45%;
+    background-color: rgb(255, 175, 70);
+    display: block;
+    text-align: center;
+}
+
+.login-part h2{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 500 !important;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.login-part .login-email , .login-part .login-password{
+    width: 65%;
+    height: 40px;
+    border: transparent;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    font-size: 17px;
+
+}
+
+.login-part .login-btn{
+    height: 40px;
+    width: 71%;
+    background: black;
+    color: #fff;
+    font-size: 20px;
+    border: transparent;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.login-part small{
+    font-size: 15px;
+    color: #fff;
+}
+
+.login-part small span{
+    color: black;
+    font-weight: bold;
+}
+
+@media screen and (min-width:500px) and (max-width:900px) {
+    .login-box{
+        display: unset;
+    }
+    .login-image{
+    flex-basis: unset;
+}
+.login-part{
+    height: fit-content;
+    padding: 20px;
+}
+}
+
+@media screen and (max-width:500px) {
+    .login-box{
+        display: unset;
+    }
+    .login-image{
+    flex-basis: unset;
+}
+.login-part h2{
+    font-size: 25px;
+}
+.login-part .login-email , .login-part .login-password{
+    width: 80%;
+    height: 30px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.login-part .login-btn{
+    height: 35px;
+    width: 60%;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.login-part small{
+    font-size: 11px;
+}
+.login-part{
+    height: fit-content;
+    padding: 10px;
+}
+
+}

@@ -1,0 +1,159 @@
+.banner{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 3%;
+    height: 88vh;
+}
+
+.banner-box{
+    height: 77vh;
+    padding-top: 4%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;  
+    align-items: center;
+    text-align: center;
+}
+
+
+.text{
+    flex-basis: 50%;
+}
+
+
+.text h1{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.text span{
+    color: var(--secondary-color)
+}
+
+.text p{
+    padding-top: 35px;
+    font-size: 17px;
+    line-height: 25px;
+    text-align: initial;
+}
+
+.text-wrap{
+    width: 92%;
+}
+
+
+.banner-img{
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.banner-img img{
+    height: auto;
+    width: 35%;
+    margin: 10px;
+    border-radius: 3%;
+    border: black 2px solid;
+    outline: none;
+box-shadow: -15px 10px 72px 51px rgba(255,145,0,0.11);
+
+
+}
+
+.banner-bottom-img{
+    width: 74% !important;
+    height: auto;
+}
+
+@media screen and (min-width:850px) and (max-width:1200px) {
+    .text{
+        flex-basis: 100%;
+       }
+       .text-wrap{
+        width: 100%;
+    }
+
+       .banner-img{
+flex-basis: 100%;
+       }
+
+       .banner-img img{
+        width: 30%;
+        margin: 15px 21px;
+       }
+       .banner-bottom-img{
+        width: 71% !important ;
+
+       }
+
+
+}
+
+@media screen and (min-width:400px) and (max-width:850px) {
+    .text{
+        flex-basis: 100%;
+       }
+       .text-wrap{
+        width: 100%;
+    }
+
+    .text h1{
+        font-size: 33px;
+    }
+    .text p{
+        font-size: 17px;
+        line-height: 23px;
+    }
+
+       .banner-img{
+flex-basis: 100%;
+       }
+
+       .banner-img img{
+        width: 42%;
+        margin: 10px 10px;
+       }
+       .banner-bottom-img{
+        width: 92% !important ;
+       }
+
+       .banner{
+        height: 98vh;
+       }
+}
+
+@media screen and (max-width:400px){
+    .text{
+        flex-basis: 100%;
+       }
+       .text-wrap{
+        width: 100%;
+    }
+
+    .text h1{
+        font-size: 25px;
+    }
+    .text p{
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+       .banner-img{
+flex-basis: 100%;
+       }
+
+       .banner-img img{
+        width: 42%;
+        margin: 10px 10px;
+       }
+       .banner-bottom-img{
+        width: 92% !important ;
+       }
+       .banner{
+        height: 92vh;
+       }
+}

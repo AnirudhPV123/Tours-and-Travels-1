@@ -1,0 +1,161 @@
+.testimony{
+  width: 100%;
+  height: 40vh;
+  padding-top: 0;
+  background-color: rgb(247, 247, 247);
+}
+
+.testimony-box{
+  width: 80%;
+  margin: auto;
+}
+
+.testimony-box h5 {
+  font-size: 25px;
+  color: rgb(255, 115, 0);
+  font-family: 'Dancing Script', cursive;
+}
+
+.testimony-box h2 {
+  font-size: 30px;
+  padding-top: 10px;
+  font-weight: 400;
+  padding-bottom: 25px;
+}
+
+.slide-container{
+  width: 85%;
+  margin: auto;
+}
+.slide-content{
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 200px;
+}
+.slide-content .card{
+  border-radius: 20px;
+  background-color: #ffffff;
+  height: fit-content;
+}
+
+.slide-content .card-box{
+  width: fit-content;
+  height: fit-content;
+  margin: 12px;
+}
+
+
+
+.swiper-navBtn{
+  display: none;
+}
+
+.swiper-navBtn:hover{
+  color: rgb(12, 144, 231);
+}
+
+
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-prev{
+  left: 0;
+}
+
+.user{
+  display: flex;
+}
+
+.user img{
+  width: 60px;
+  height: 60px;
+  border-radius: 7px;
+  
+}
+
+.user-info{
+  margin-left: 15px;
+  line-height: 30px;
+  flex-wrap: wrap;
+}
+
+.user-info p{
+  font-weight: 600;
+  font-size: 17px;
+}
+
+
+.user-info small{
+  font-size: 14px;
+  color: #009688;
+}
+
+@media screen and (min-width:400px) and (max-width:1200px) {
+  .slide-container{
+    width: 90%;
+  }
+  .testimonital-review{
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (min-width:1200px) and (max-width:1500px) {
+  .slide-container{
+    width: 86.5%;
+  }
+
+}
+
+@media screen and (max-width:400px) {
+  
+  .swiper-navBtn{
+    display: none;
+  }
+  .slide-content{
+    margin:0 10px;
+  }
+
+.user img{
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+  
+}
+
+.user-info{
+  margin-left: 15px;
+  line-height: 20px;
+  flex-wrap: wrap;
+}
+
+.user-info p{
+  font-weight: 600;
+  font-size: 13px;
+}
+
+
+.user-info small{
+  font-size: 11px;
+}
+
+.testimonital-review{
+  font-size: 13px;
+  line-height: 18px;
+}
+.slide-content{
+
+  border-radius: 7px;
+  height: 150px;
+}
+
+.testimony-box h5 {
+  font-size: 25px;
+}
+
+.testimony-box h2 {
+  font-size: 25px;
+}
+
+}

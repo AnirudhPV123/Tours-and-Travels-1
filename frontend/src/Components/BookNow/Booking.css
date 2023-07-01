@@ -1,0 +1,552 @@
+.booking {
+    width: 80%;
+    margin: auto;
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    }
+
+.booking .tour-details {
+    width: 60%;
+    height: fit-content;
+}
+
+.booking .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* tour description */
+
+.booking .tour-desc{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    border: rgb(226, 226, 226) 0.5px solid;
+}
+
+.booking .tour-desc-box{
+    height: fit-content;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.booking .tour-desc h1{
+    font-size: 30px;
+    color: rgb(75, 75, 75);
+}
+
+.booking .tour-desc h5{
+    font-size: 18px;
+    margin-top: 15px;
+    color: rgb(105, 105, 105);
+    margin-left: 20px;
+}
+
+.booking .tour-desc img{
+    height: 25px;
+    float: left;
+    margin-top: 10px;
+}
+
+.booking .tour-desc h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+    color: rgb(75, 75, 75);
+}
+
+.booking .tour-desc p{
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 20px;
+    color: rgb(105, 105, 105);
+}
+
+
+/* tour review */
+
+.booking .tour-review {
+    width: 100%;
+    border: rgb(226, 226, 226) 0.5px solid;
+    height: fit-content;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 50px;
+}
+
+.booking .tour-review .tour-review-box{
+    width: 90%;
+    margin:auto;
+    margin-top: 20px;
+    height: fit-content;
+    position: relative;
+}
+
+.tour-review-box h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tour-review-box button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--secondary-color);
+    border-radius: 7px;
+    border: transparent;
+    outline: transparent;
+    cursor: pointer;
+}
+
+.tour-review-section .tour-reviews{
+    width: 100%;
+    height: 100px;
+    margin-top: 60px;
+}
+
+.tour-reviews .tour-reviews-header{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    position: relative;
+}
+
+.tour-review-section .tour-reviews .guest-logo{
+    width: 30px;
+    height: 30px;
+}
+
+.tour-review-section .tour-reviews h6{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.tour-review-section .tour-reviews p{
+    position: absolute;
+    right: 0;
+    font-weight: 600;
+}
+
+.tour-reviews-content{
+    margin-top: 10px;
+    height: fit-content;
+}
+
+.tour-reviews-content p{
+    font-weight: 100 !important;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(105, 105, 105);
+}
+
+
+/* rating box */
+
+
+.rate-body{
+    height: 0;
+}
+.rating-box {
+    z-index: 1;
+    position: relative;
+    background:#fff;
+    border: rgb(226, 226, 226) 0.5px solid;
+    border-top: transparent;
+    width: 60%;
+    border-radius: 0 0 12px 12px;
+       margin: auto;
+    padding: 30px;
+}
+  .rating-box header {
+    font-size: 22px;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .rating-box .stars {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding-bottom: 30px;
+  }
+  .stars i {
+    color: #e6e6e6;
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .stars i.active {
+    color: #ff9c1a;
+  }
+  
+ 
+.rating-box .text-area{
+    width: 100%;
+}
+
+
+  .rating-box .write-review{
+      height: 15vh;
+      width: 90%;
+      outline: transparent;
+      border: transparent;
+      background-color: #f3f3f3;
+      border-radius: 0.5rem;
+      resize: none;
+      padding: 5%;
+      margin: auto;
+  }
+  
+  .rating-box .review-btn-group{
+    margin-top: 10px;
+      display: flex;
+      grid-gap: 10px;
+      align-items: center;
+  }
+  
+  
+  .review-btn-group .review-submit{
+      width: 25%;
+      height: 40px;
+      border-radius: 7px;
+      outline: transparent;
+      border: transparent;
+      background-color: rgb(53, 116, 252);
+      color: #ffff;
+      cursor: pointer;
+  }
+  
+  .review-btn-group .review-cancel{
+      width: 25%;
+      height: 40px;
+      border-radius: 7px;
+      outline: transparent;
+      border: transparent;
+      background-color:#fff;
+      color: rgb(53, 116, 252);
+      cursor: pointer;
+  }
+  
+  .review-btn-group .review-submit:hover{
+      background-color: rgb(0, 89, 255);
+  }
+  
+  .review-btn-group .review-cancel:hover{
+  color: rgb(0, 89, 255);
+  background-color: #f3f3f3;
+}
+ 
+
+
+
+
+/* booking detials */
+
+.booking .booking-details {
+    position: sticky;
+    top: 110px;
+    width: 37%;
+    height: fit-content;
+    padding-bottom: 50px;
+    outline: none;
+    border: rgb(226, 226, 226) 0.5px solid;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.booking-details .details-box {
+    width: 85%;
+}
+
+.booking-price {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    border-bottom: rgb(226, 226, 226) 0.5px solid;
+}
+
+.booking-price span {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+
+.booking-part h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.booking-content {
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+    border: rgb(226, 226, 226) 0.5px solid;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.booking-content .content-box{
+    height: fit-content;
+    width: 85%;
+}
+
+
+
+.booking-content .name , .booking-content .mobile {
+    outline: none;
+    border: none;
+    border-bottom: rgb(226, 226, 226) 0.5px solid;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.booking-content .date {
+    outline: none;
+    border: none;
+    border-bottom: rgb(226, 226, 226) 0.5px solid;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+color: rgb(170, 170, 170);
+}
+
+.booking-content ::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+
+.booking-content .adults {
+    outline: none;
+    border: none;
+    border-bottom: rgb(226, 226, 226) 0.5px solid;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.booking-content .date-travel {
+    outline: none;
+    border: none;
+    border-bottom: rgb(226, 226, 226) 0.5px solid;
+    height: 35px;
+    width: 100%;
+    margin-top: 10px;
+    color: rgb(170, 170, 170);
+}
+
+
+.booking-footer {
+    width: 100%;
+    height: 20vh;
+    margin-top: 20px;
+    display: grid;
+}
+
+.booking-footer p{
+    font-size: 14px;
+color: rgb(58, 58, 58);
+}
+
+.booking-footer .total-price{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.booking-footer .service-charge{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.booking-footer .total{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+        padding-bottom: 50px;
+        
+}
+
+.booking-footer .total p{
+    font-weight: 600;
+}
+
+.booking-footer a{
+    padding:10px 0;
+    background: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    text-align: center;
+    color: black;
+    justify-content: center;
+}
+
+
+@media screen and (min-width:450px) and (max-width:900px) {
+    .booking{
+        display: unset;
+        justify-content: unset;
+    }
+    .booking .tour-details {
+        width: 80%;
+        margin: auto;
+    }
+    .booking .booking-details{
+        position: unset;
+        width: 80%;
+        margin: auto;
+    }
+    .booking-content .name , .booking-content .mobile {
+    font-size: 15px;
+    }
+    .booking-content .date {
+        font-size: 15px;
+    }
+    .booking-content .adults {
+        font-size: 15px;    
+    }
+    .booking-content .date-travel{
+        font-size: 15px;
+    }
+    .booking-footer p{
+        font-size: 18px;
+    }
+    .booking-footer .total p{
+        font-size: 18px;
+    }
+    .booking-footer a{
+        font-size: 20px;
+    }
+
+    .full-body {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .booking{
+        display: unset;
+        justify-content: unset;
+    }
+    .booking .tour-details {
+        width: 80%;
+        margin: auto;
+    }
+    .booking .booking-details{
+        position: unset;
+        width: 80%;
+        margin: auto;
+    }
+    .booking .tour-desc h1 {
+        font-size: 20px;
+    }
+    .booking .tour-desc h5 {
+        font-size: 12px;
+    }
+    .booking .tour-desc h3 {
+        font-size: 15px;
+    }
+    .booking .tour-desc p {
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .tour-review-box h4 {
+        font-size: 16px;
+    }
+    .tour-review-box button {
+        font-size: 13px;
+        width: 85px;
+        height: 35px;
+    }
+    .tour-review-section .tour-reviews {
+        margin-top: 50px;
+    }
+    .tour-review-section .tour-reviews .guest-logo {
+        width: 25px;
+        height: 25px;
+    }
+    .tour-review-section .tour-reviews h6 {
+        font-size: 12px;
+    }
+
+    .tour-review-section .tour-reviews small {
+        font-size: 11px;
+    }
+    .tour-reviews-content p {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+
+    .booking-price span {
+        font-size: 22px;
+    }
+    .booking-price p{
+        font-size: 12px;
+    }
+
+    .booking-content .name , .booking-content .mobile {
+    font-size: 12px;
+    }
+    .booking-content .date {
+        font-size: 12px;
+    }
+    .booking-content .adults {
+        font-size: 12px;    
+    }
+    .booking-content .date-travel{
+        font-size: 12px;
+    }
+    .booking-footer p{
+        font-size: 13px;
+    }
+    .booking-footer .total p{
+        font-size: 13px;
+    }
+    .booking-footer a{
+        font-size: 17px;
+    }
+
+
+    .full-body {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 40px;
+    }
+
+    .rating-box{
+        width: 80%;
+    }
+    .rating-box .stars {
+        gap: 20px;
+    }
+    .stars i{
+        font-size: 30px;
+    }
+    .rating-box header {
+        font-size: 18px;
+        color: black;
+        font-weight: 500;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+}
+
