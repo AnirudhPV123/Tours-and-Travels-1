@@ -4,9 +4,9 @@ const userHelpers = require('../helpers/user-helpers')
 const Jwt = require('jsonwebtoken');
 const jwtKey='123';
 
-  
+   
 router.post('/signup',async(req,res)=>{
-    userHelpers.doSignup(req.body).then((user)=>{
+    userHelpers.doSignup(req.body).then((user)=>{         
         Jwt.sign({user},jwtKey,{expiresIn:"30d"},(err,token)=>{
             if(err){
                 res.send({result:"something went wrong"})       
@@ -26,13 +26,13 @@ router.post('/login',async(req,res)=>{
                 }else{
                 res.send({user:user.user,auth:token})
             }
-            })
-        }else{  
+            }) 
+        }else{        
             res.send({result:"No user found"})                
         }
     })
 })
-
+             
 router.get('/get-products', async(req,res)=>{
     userHelpers.getProducts().then((products)=>{           
         if(products){
