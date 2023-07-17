@@ -89,7 +89,7 @@ router.get('/get-booked-details',verifyToken,async(req,res)=>{
         }else{
             res.send({result:"Something went wrong"})
         }
-    })
+    })             
 })
 
 router.get('/getAdminDetails',verifyToken,async(req,res)=>{
