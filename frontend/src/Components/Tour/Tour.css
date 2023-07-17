@@ -1,4 +1,4 @@
-.search-box{
+.search-box {
     width: 80%;
     margin: auto;
     height: fit-content;
@@ -8,7 +8,7 @@
     padding-top: 10px;
 }
 
-.search-bar{
+.search-bar {
     width: 40%;
     max-width: 32rem;
     background: rgb(255, 197, 88);
@@ -18,25 +18,25 @@
     padding: 8px 20px;
 }
 
-.search-bar input{
+.search-bar input {
     background-color: transparent;
-    flex:1;
+    flex: 1;
     border: 0;
     outline: none;
     padding: 5px 15px;
     font-size: 18px;
-    color:black;
-}
-
-::placeholder{
     color: black;
 }
 
-.search-bar button img{
+::placeholder {
+    color: black;
+}
+
+.search-bar button img {
     width: 20px;
 }
 
-.search-bar button{
+.search-bar button {
     border: 0;
     border-radius: 50%;
     width: 35px;
@@ -45,7 +45,7 @@
     cursor: pointer;
 }
 
-.search-bar:hover{
+.search-bar:hover {
     background: rgb(243, 182, 68);
 }
 
@@ -58,7 +58,7 @@
     background: rgb(240, 240, 240);
 }
 
-.cards .card:hover{
+.cards .card:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 20px 3px black;
 }
@@ -73,7 +73,7 @@
 }
 
 
-.card .image{
+.card .image {
     width: 100%;
     height: fit-content;
     position: relative;
@@ -117,34 +117,56 @@
 }
 
 .desc h5 {
-    display: inline-flex;
     line-height: 45px;
 }
 
-.desc a {
-    text-decoration: none;
-    position: absolute;
-    right: 5%;
-    margin-top: 5px;
-    padding: 3px 10px;
+
+.desc button {
+    outline: none;
+    border: none;
     background: rgb(243, 170, 61);
     color: #fff;
     font-size: 13px;
     border-radius: 5px;
-    transition: 0.5s;
     cursor: pointer;
+    transition: transform 0.5s;
+    width: 40%;
+    height: 35px;
 }
 
+.desc .add-to-cart {
+    margin-right: 7%;
+    background: #FFD814;
+}
+
+
+
+
+
+.desc button:hover {
+    background-color: rgb(231, 143, 10);
+    transform: scale(1.05);
+}
+
+.desc .add-to-cart:hover {
+    background: #ffd816;
+    transform: scale(1.05);
+}
 
 @media (min-width: 1200px) {
     .cards {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .desc button {
+        height: 40px;
     }
 }
 
 @media (max-width: 500px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
+        margin-top: 5vh;
     }
 
     .cards .card h4 {
@@ -173,34 +195,40 @@
         font-size: 10px;
     }
 
-    .desc a {
-        font-size: 10px;
-        padding: 2px 4px;
-        right: 2%;
-        margin-top: 10px;
+
+    .desc button {
+        height: 30px;
+        font-size: 12px;
+        width: 50%;
     }
-    .cards .card{
+
+    .cards .card {
         border-radius: 8px;
     }
-    .cards .card img{
+
+    .cards .card img {
         border-radius: 8px 8px 0 0;
     }
 
-    .search-bar{
-    width: 90%;
-        padding: 7px 20px;
+    .search-bar {
+        width: 90%;
+        padding: 4px 10px;
     }
-    .search-bar input{
-    font-size: 15px;
+
+    .search-bar input {
+        font-size: 13px;
     }
-    .search-bar button{
+
+    .search-bar button {
         width: 30px;
         height: 30px;
     }
-    .search-box{
+
+    .search-box {
         padding-top: 0;
         padding-bottom: 0;
     }
+
 }
 
 
@@ -209,19 +237,22 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .search-bar{
+    .search-bar {
         width: 55%;
         padding: 9px 20px;
-        }
-        .search-bar input{
+    }
+
+    .search-bar input {
         font-size: 17px;
-        }
-        .search-bar button{
-            width: 35px;
-            height: 35px;
-        }
-        .search-box{
-            padding-top: 0;
-            padding-bottom: 0;
-        }
+    }
+
+    .search-bar button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .search-box {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }

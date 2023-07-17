@@ -1,309 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Tour.css'
-
+import Axios from 'axios'
+import { backend_url } from '../../Url'
+import { v4 as uuidv4 } from 'uuid'  //universal unique id 
+import { useNavigate } from 'react-router-dom'
 
 function Tour() {
+  const [products, setProducts] = useState([])
+  const [noItems, setNoItems] = useState(false)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    getProduct()
+  }, [])
+
+  const getProduct = async () => {
+    Axios.get(`${backend_url}/api/user/get-products`).then(async (response) => {
+      setProducts(response.data)
+    })
+  }
+
+  const handleSearch = (e) => {
+    const key = e.target.value
+    if (key) {
+      Axios.get(`${backend_url}/api/user/search/${key}`).then((response) => {
+        if (response.data.length > 0) {
+          setProducts(response.data)
+        } else {
+          setNoItems(true)
+
+        }
+      })
+    } else {
+      getProduct()
+    }
+
+  }
+
   return (
     <>
-      <div class="search-box">
-        <form action="" class="search-bar">
-          <input type="text" placeholder="search" name="search" />
+      <div className="search-box">
+        <form action="" className="search-bar">
+          <input type="text" onChange={handleSearch} placeholder="search" name="search" />
           <button type="submit"><img src="../../../images/search.png" /></button>
         </form>
       </div>
 
-      <div class="cards">
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/alappuzha-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Alappuzha , India</h6>
-            <h3>Houseboat cruises</h3>
-            <h5><span>$499</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/tokyo.webp" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Tokyo , Japan</h6>
-            <h3>Cherry Blossams Spring</h3>
-            <h5><span>$999</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/varanasi-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Varanasi , India</h6>
-            <h3>Spiritual capital of India</h3>
-            <h5><span>$599</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/london-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>London , UK</h6>
-            <h3>Westminster Bridge</h3>
-            <h5><span>$1299</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/bali-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Bali , Indonesia</h6>
-            <h3>Nusa Penida Island</h3>
-            <h5><span>$1399</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/tajmahal.webp" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6> Agra , India</h6>
-            <h3>Taj Mahal</h3>
-            <h5><span>$499</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/phuket-thailand-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Phuket , Thailand</h6>
-            <h3>Most popular beaches</h3>
-            <h5><span>$1299</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/paris.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Paris , France</h6>
-            <h3>Eiffel Tower</h3>
-            <h5><span>$1199</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
+      <div className="cards">
+        {noItems && <h3>No items found...</h3>}
+        {products.map((obj) => {
+          return (
+            <div className="card" key={uuidv4()} onClick={() => { navigate('/book-now', { state: { id: obj._id } }) }} >
+              <div className="image">
+                <img src={obj.postImage} style={{ aspectRatio: '3/2' }} alt='tour image' />
+                <h4>Featured</h4>
+              </div>
+              <div className="desc">
+                <h6>{obj.place} , {obj.country}</h6>
+                <h3>{obj.feature}</h3>
+                <h5><span>{obj.price}</span>/per person</h5>
+              </div>
+            </div>
+          );
+        })}
 
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/alappuzha-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Alappuzha , India</h6>
-            <h3>Houseboat cruises</h3>
-            <h5><span>$499</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/tokyo.webp" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Tokyo , Japan</h6>
-            <h3>Cherry Blossams Spring</h3>
-            <h5><span>$999</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/varanasi-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Varanasi , India</h6>
-            <h3>Spiritual capital of India</h3>
-            <h5><span>$599</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/london-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>London , UK</h6>
-            <h3>Westminster Bridge</h3>
-            <h5><span>$1299</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/bali-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Bali , Indonesia</h6>
-            <h3>Nusa Penida Island</h3>
-            <h5><span>$1399</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/tajmahal.webp" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6> Agra , India</h6>
-            <h3>Taj Mahal</h3>
-            <h5><span>$499</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/phuket-thailand-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Phuket , Thailand</h6>
-            <h3>Most popular beaches</h3>
-            <h5><span>$1299</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/paris.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Paris , France</h6>
-            <h3>Eiffel Tower</h3>
-            <h5><span>$1199</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/alappuzha-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Alappuzha , India</h6>
-            <h3>Houseboat cruises</h3>
-            <h5><span>$499</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/tokyo.webp" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Tokyo , Japan</h6>
-            <h3>Cherry Blossams Spring</h3>
-            <h5><span>$999</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/varanasi-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Varanasi , India</h6>
-            <h3>Spiritual capital of India</h3>
-            <h5><span>$599</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/london-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>London , UK</h6>
-            <h3>Westminster Bridge</h3>
-            <h5><span>$1299</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/bali-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Bali , Indonesia</h6>
-            <h3>Nusa Penida Island</h3>
-            <h5><span>$1399</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/tajmahal.webp" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6> Agra , India</h6>
-            <h3>Taj Mahal</h3>
-            <h5><span>$499</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/phuket-thailand-1.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Phuket , Thailand</h6>
-            <h3>Most popular beaches</h3>
-            <h5><span>$1299</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="image">
-            <img src="../../../images/paris.jpg" alt="" />
-            <h4>Featured</h4>
-          </div>
-          <div className="desc">
-            <h6>Paris , France</h6>
-            <h3>Eiffel Tower</h3>
-            <h5><span>$1199</span>/per person</h5>
-            <a href="">Book Now</a>
-          </div>
-        </div>
-        
       </div>
     </>
   )

@@ -1,98 +1,110 @@
-.serve{
+.serve {
     width: 100%;
-    height:fit-content;
+    height: fit-content;
     background-color: rgb(247, 247, 247);
     padding-top: 0;
 }
 
-.serve-box{
+.serve-box {
     padding-top: 35px;
     padding-bottom: 35px;
     width: 80%;
+    height: fit-content;
     margin: auto;
     display: flex;
     justify-content: space-between;
 }
 
-.serve-header{
+.serve-header {
     flex-basis: 20%;
     height: 100px;
 }
 
 
-.weather,.guide,.customization{
+.weather,
+.guide,
+.customization {
     flex-basis: 25%;
     height: fit-content;
-    border-right:  1px solid var(--secondary-color);
-    border-left:  1px solid var(--secondary-color);
-    text-align:initial;
+    border-right: 1px solid var(--secondary-color);
+    border-left: 1px solid var(--secondary-color);
+    text-align: initial;
     padding-left: 10px;
 }
 
-.serve-header p{
+.serve-header p {
     font-size: 25px;
     color: rgb(255, 115, 0);
     font-family: 'Dancing Script', cursive;
 }
 
-.serve-header h2{
+.serve-header h2 {
     font-size: 30px;
     padding-top: 15px;
     font-weight: 400;
 }
 
-.service-img{
+.service-img {
     width: 50px;
     height: auto;
     background: var(--secondary-color);
     border-radius: 50%;
 }
 
-.service-h1{
+.service-h1 {
     font-size: 18px;
     font-weight: 600;
     padding-top: 5px;
 }
 
-.service-p{
+.service-p {
     font-size: 14px;
     line-height: 20px;
     padding-top: 5px;
 }
 
-@media screen and (min-width:400px) and (max-width:1200px) {
-    .serve-header{
+@media screen and (min-width:450px) and (max-width:1200px) {
+    .serve-header {
         flex-basis: 50%;
         height: 100px;
     }
-    .weather,.guide,.customization{
-    flex-basis: 50%;
+
+    .weather,
+    .guide,
+    .customization {
+        flex-basis: 50%;
     }
 }
 
-@media screen and (max-width:400px) {
-    .serve-box{
-        width: 70%;
-        display: inline;
+@media screen and (max-width:450px) {
+    .serve-box {
+        width: 80%;
+        margin: auto;
+        display: block;
         text-align: center;
     }
-    .serve-header{
+
+    .serve-header {
         padding-top: 25px;
     }
 
-    .serve-header h2{
+    .serve-header h2 {
         font-size: 24px;
     }
 
-    .weather,.guide,.customization{
+    .weather,
+    .guide,
+    .customization {
         padding-top: 30px;
-        border-bottom:  1px solid var(--secondary-color) ;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--secondary-color);
         border-right: unset;
         border-left: unset;
-    
+
     }
-    .serve{
-        height: 83vh;
+
+    .serve {
+        height: fit-content;
+        padding-bottom: 5vh;
     }
 }
-

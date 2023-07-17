@@ -1,4 +1,4 @@
-.login{
+.login {
     width: 80%;
     margin: auto;
     display: flex;
@@ -8,33 +8,33 @@
 
 }
 
-.login-box{
+.login-box {
     width: 70%;
     height: fit-content;
     box-shadow: 0px 10px 20px 3px rgb(240, 240, 240);
     display: flex;
 }
 
-.login-image{
+.login-image {
     flex-basis: 55%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login-image img{
+.login-image img {
     width: 90%;
     height: auto;
 }
 
-.login-part{
+.login-part {
     flex-basis: 45%;
     background-color: rgb(255, 175, 70);
     display: block;
     text-align: center;
 }
 
-.login-part h2{
+.login-part h2 {
     font-size: 30px;
     color: #fff;
     font-weight: 500 !important;
@@ -42,19 +42,20 @@
     margin: 20px 0;
 }
 
-.login-part .login-email , .login-part .login-password{
+.login-part .login-email,
+.login-part .login-password {
     width: 65%;
     height: 40px;
     border: transparent;
     outline: none;
     border-radius: 5px;
     padding-left: 20px;
-    margin-bottom: 15px;
+    margin-top: 15px;
     font-size: 17px;
 
 }
 
-.login-part .login-btn{
+.login-part .login-btn {
     height: 40px;
     width: 71%;
     background: black;
@@ -68,58 +69,108 @@
     cursor: pointer;
 }
 
-.login-part small{
+.login-part small {
     font-size: 15px;
     color: #fff;
 }
 
-.login-part small span{
+.login-part small span {
     color: black;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.login-part .input-validation {
+    color: red;
+    font-size: 14px;
+}
+
+.login-part .login-error {
+    width: 65%;
+    height: 15px;
+    padding-top: 7px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding-right: 20px;
+}
+
+.login-part .user-error {
+    width: 65%;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding-right: 20px;
 }
 
 @media screen and (min-width:500px) and (max-width:900px) {
-    .login-box{
+    .login-box {
         display: unset;
     }
-    .login-image{
-    flex-basis: unset;
-}
-.login-part{
-    height: fit-content;
-    padding: 20px;
-}
+
+    .login-image {
+        flex-basis: unset;
+    }
+
+    .login-part {
+        height: fit-content;
+        padding: 20px;
+    }
 }
 
 @media screen and (max-width:500px) {
-    .login-box{
+    .login-box {
         display: unset;
     }
-    .login-image{
-    flex-basis: unset;
-}
-.login-part h2{
-    font-size: 25px;
-}
-.login-part .login-email , .login-part .login-password{
-    width: 80%;
-    height: 30px;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-.login-part .login-btn{
-    height: 35px;
-    width: 60%;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.login-part small{
-    font-size: 11px;
-}
-.login-part{
-    height: fit-content;
-    padding: 10px;
-}
+
+    .login-image {
+        flex-basis: unset;
+    }
+
+    .login-part h2 {
+        font-size: 25px;
+    }
+
+    .login-part .login-email,
+    .login-part .login-password {
+        width: 80%;
+        height: 30px;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .login-part .login-btn {
+        height: 35px;
+        width: 60%;
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .login-part small {
+        font-size: 11px;
+    }
+
+
+    .login-part {
+        height: fit-content;
+        padding: 10px;
+    }
+
+    .login-part .input-validation {
+        font-size: 12px;
+    }
+
+    .login-part .login-error {
+        width: 80%;
+        height: 1px;
+        padding-top: 1px;
+    }
+
+    .login-part .user-error {
+        width: 80%;
+        height: 1px;
+    }
 
 }

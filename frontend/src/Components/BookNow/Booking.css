@@ -5,11 +5,16 @@
     display: flex;
     justify-content: space-between;
     height: fit-content;
-    }
+}
 
 .booking .tour-details {
     width: 60%;
     height: fit-content;
+
+    /* popup change */
+
+    opacity: 1;
+    transition: opacity 1.5s;
 }
 
 .booking .image img {
@@ -20,45 +25,45 @@
 
 /* tour description */
 
-.booking .tour-desc{
+.booking .tour-desc {
     margin-top: 20px;
     width: 100%;
     height: fit-content;
     border: rgb(226, 226, 226) 0.5px solid;
 }
 
-.booking .tour-desc-box{
+.booking .tour-desc-box {
     height: fit-content;
     width: 90%;
     margin: 20px auto;
 }
 
-.booking .tour-desc h1{
+.booking .tour-desc h1 {
     font-size: 30px;
     color: rgb(75, 75, 75);
 }
 
-.booking .tour-desc h5{
+.booking .tour-desc h5 {
     font-size: 18px;
     margin-top: 15px;
     color: rgb(105, 105, 105);
     margin-left: 20px;
 }
 
-.booking .tour-desc img{
+.booking .tour-desc img {
     height: 25px;
     float: left;
     margin-top: 10px;
 }
 
-.booking .tour-desc h3{
+.booking .tour-desc h3 {
     font-size: 20px;
     font-weight: 600;
     margin-top: 15px;
     color: rgb(75, 75, 75);
 }
 
-.booking .tour-desc p{
+.booking .tour-desc p {
     font-size: 14px;
     margin-top: 15px;
     line-height: 20px;
@@ -77,20 +82,20 @@
     padding-bottom: 50px;
 }
 
-.booking .tour-review .tour-review-box{
+.booking .tour-review .tour-review-box {
     width: 90%;
-    margin:auto;
+    margin: auto;
     margin-top: 20px;
     height: fit-content;
     position: relative;
 }
 
-.tour-review-box h4{
+.tour-review-box h4 {
     font-size: 20px;
     font-weight: 600;
 }
 
-.tour-review-box button{
+.tour-review-box button {
     position: absolute;
     top: 0;
     right: 0;
@@ -104,41 +109,41 @@
     cursor: pointer;
 }
 
-.tour-review-section .tour-reviews{
+.tour-review-section .tour-reviews {
     width: 100%;
     height: 100px;
     margin-top: 60px;
 }
 
-.tour-reviews .tour-reviews-header{
+.tour-reviews .tour-reviews-header {
     width: 100%;
     height: fit-content;
     display: flex;
     position: relative;
 }
 
-.tour-review-section .tour-reviews .guest-logo{
+.tour-review-section .tour-reviews .guest-logo {
     width: 30px;
     height: 30px;
 }
 
-.tour-review-section .tour-reviews h6{
+.tour-review-section .tour-reviews h6 {
     font-size: 14px;
     font-weight: 600;
 }
 
-.tour-review-section .tour-reviews p{
+.tour-review-section .tour-reviews .tour-reviews-header p {
     position: absolute;
     right: 0;
     font-weight: 600;
 }
 
-.tour-reviews-content{
+.tour-reviews-content {
     margin-top: 10px;
     height: fit-content;
 }
 
-.tour-reviews-content p{
+.tour-reviews-content p {
     font-weight: 100 !important;
     font-size: 14px;
     line-height: 20px;
@@ -149,100 +154,111 @@
 /* rating box */
 
 
-.rate-body{
+.rate-body {
     height: 0;
 }
+
 .rating-box {
     z-index: 1;
     position: relative;
-    background:#fff;
+    background: #fff;
     border: rgb(226, 226, 226) 0.5px solid;
     border-top: transparent;
     width: 60%;
     border-radius: 0 0 12px 12px;
-       margin: auto;
+    margin: auto;
     padding: 30px;
 }
-  .rating-box header {
+
+.rating-box header {
     font-size: 22px;
     color: black;
     font-weight: 500;
     margin-bottom: 20px;
     text-align: center;
-  }
-  .rating-box .stars {
+}
+
+.rating-box .stars {
     display: flex;
     justify-content: center;
     gap: 25px;
     padding-bottom: 30px;
-  }
-  .stars i {
-    color: #e6e6e6;
-    font-size: 35px;
+}
+
+.rating-box h4 {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.rating-box .stars .star {
+    display: none;
+}
+
+.rating-box .stars label {
     cursor: pointer;
-    transition: color 0.2s ease;
-  }
-  .stars i.active {
-    color: #ff9c1a;
-  }
-  
- 
-.rating-box .text-area{
+}
+
+
+.rating-box .text-area {
     width: 100%;
 }
 
 
-  .rating-box .write-review{
-      height: 15vh;
-      width: 90%;
-      outline: transparent;
-      border: transparent;
-      background-color: #f3f3f3;
-      border-radius: 0.5rem;
-      resize: none;
-      padding: 5%;
-      margin: auto;
-  }
-  
-  .rating-box .review-btn-group{
-    margin-top: 10px;
-      display: flex;
-      grid-gap: 10px;
-      align-items: center;
-  }
-  
-  
-  .review-btn-group .review-submit{
-      width: 25%;
-      height: 40px;
-      border-radius: 7px;
-      outline: transparent;
-      border: transparent;
-      background-color: rgb(53, 116, 252);
-      color: #ffff;
-      cursor: pointer;
-  }
-  
-  .review-btn-group .review-cancel{
-      width: 25%;
-      height: 40px;
-      border-radius: 7px;
-      outline: transparent;
-      border: transparent;
-      background-color:#fff;
-      color: rgb(53, 116, 252);
-      cursor: pointer;
-  }
-  
-  .review-btn-group .review-submit:hover{
-      background-color: rgb(0, 89, 255);
-  }
-  
-  .review-btn-group .review-cancel:hover{
-  color: rgb(0, 89, 255);
-  background-color: #f3f3f3;
+.rating-box .write-review {
+    height: 15vh;
+    width: 90%;
+    outline: transparent;
+    border: transparent;
+    background-color: #f3f3f3;
+    border-radius: 0.5rem;
+    resize: none;
+    padding: 5%;
+    margin: auto;
 }
- 
+
+.rating-box .review-btn-group {
+    margin-top: 10px;
+    display: flex;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+
+.review-btn-group .review-submit {
+    width: 25%;
+    height: 40px;
+    border-radius: 7px;
+    outline: transparent;
+    border: transparent;
+    background-color: rgb(53, 116, 252);
+    color: #ffff;
+    cursor: pointer;
+}
+
+.review-btn-group .review-cancel {
+    width: 25%;
+    height: 40px;
+    border-radius: 7px;
+    outline: transparent;
+    border: transparent;
+    background-color: #fff;
+    color: rgb(53, 116, 252);
+    cursor: pointer;
+}
+
+.review-btn-group .review-submit:hover {
+    background-color: rgb(0, 89, 255);
+}
+
+.review-btn-group .review-cancel:hover {
+    color: rgb(0, 89, 255);
+    background-color: #f3f3f3;
+}
+
 
 
 
@@ -260,6 +276,12 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+
+
+    /* popup change */
+
+    opacity: 1;
+    transition: opacity 2s;
 }
 
 .booking-details .details-box {
@@ -277,6 +299,13 @@
 .booking-price span {
     font-size: 25px;
     font-weight: bold;
+}
+
+.booking-part .booking-details-err,
+.mobile-no-err {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
 }
 
 
@@ -297,14 +326,15 @@
     justify-content: center;
 }
 
-.booking-content .content-box{
+.booking-content .content-box {
     height: fit-content;
     width: 85%;
 }
 
 
 
-.booking-content .name , .booking-content .mobile {
+.booking-content .name,
+.booking-content .mobile {
     outline: none;
     border: none;
     border-bottom: rgb(226, 226, 226) 0.5px solid;
@@ -320,7 +350,7 @@
     height: 35px;
     width: 100%;
     margin-top: 10px;
-color: rgb(170, 170, 170);
+    color: rgb(170, 170, 170);
 }
 
 .booking-content ::placeholder {
@@ -347,6 +377,44 @@ color: rgb(170, 170, 170);
     color: rgb(170, 170, 170);
 }
 
+.booking-content .radio-box {
+    outline: none;
+    border: none;
+    border-bottom: rgb(226, 226, 226) 1px solid;
+    border-top: rgb(226, 226, 226) 1px solid;
+    height: fit-content;
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.content-box p {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: rgb(61, 61, 61);
+}
+
+.content-box label {
+    font-size: 13px;
+    color: rgb(170, 170, 170);
+    line-height: 25px;
+}
+
+.content-box .payment-method {
+    margin-right: 10px;
+    margin-left: 10px;
+    border-bottom: rgb(226, 226, 226) 0.5px solid;
+    cursor: pointer;
+}
+
+
+.content-box .input-validation {
+    color: red;
+    font-size: 12px;
+}
+
 
 .booking-footer {
     width: 100%;
@@ -355,81 +423,167 @@ color: rgb(170, 170, 170);
     display: grid;
 }
 
-.booking-footer p{
+.booking-footer p {
     font-size: 14px;
-color: rgb(58, 58, 58);
+    color: rgb(58, 58, 58);
 }
 
-.booking-footer .total-price{
+.booking-footer .total-price {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding-bottom: 20px;
 }
 
-.booking-footer .service-charge{
+.booking-footer .service-charge {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding-bottom: 20px;
 }
 
-.booking-footer .total{
+.booking-footer .total {
     display: flex;
     justify-content: space-between;
     width: 100%;
-        padding-bottom: 50px;
-        
+    padding-bottom: 50px;
+
 }
 
-.booking-footer .total p{
+.booking-footer .total p {
     font-weight: 600;
 }
 
-.booking-footer a{
-    padding:10px 0;
+
+
+.booking-footer button {
     background: var(--secondary-color);
-    text-decoration: none;
     border-radius: 30px;
-    text-align: center;
     color: black;
-    justify-content: center;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.booking-footer .add-to-cart {
+    background-color: #FFD814;
 }
 
 
+
+
+.booked-successfully {
+    opacity: 1;
+    width: 30%;
+    min-width: 200px;
+    z-index: 1;
+    position: absolute;
+
+    background-color: #fff;
+    border-radius: 6px;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    transition: transform 1s, top 1s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.booked-successfully img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.booked-successfully h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.booked-successfully button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (min-width:450px) and (max-width:900px) {
-    .booking{
+    .booking {
         display: unset;
         justify-content: unset;
     }
+
     .booking .tour-details {
         width: 80%;
         margin: auto;
     }
-    .booking .booking-details{
+
+    .booking .booking-details {
         position: unset;
         width: 80%;
         margin: auto;
     }
-    .booking-content .name , .booking-content .mobile {
-    font-size: 15px;
+
+    .booking-content .name,
+    .booking-content .mobile {
+        font-size: 15px;
     }
+
     .booking-content .date {
         font-size: 15px;
     }
+
     .booking-content .adults {
-        font-size: 15px;    
-    }
-    .booking-content .date-travel{
         font-size: 15px;
     }
-    .booking-footer p{
+
+    .booking-content .date-travel {
+        font-size: 15px;
+    }
+
+    .booking-footer p {
         font-size: 18px;
     }
-    .booking-footer .total p{
+
+    .booking-footer .total p {
         font-size: 18px;
     }
-    .booking-footer a{
+
+    .booking-footer a {
         font-size: 20px;
     }
 
@@ -441,47 +595,58 @@ color: rgb(58, 58, 58);
 }
 
 @media screen and (max-width:450px) {
-    .booking{
+    .booking {
         display: unset;
         justify-content: unset;
     }
+
     .booking .tour-details {
         width: 80%;
         margin: auto;
     }
-    .booking .booking-details{
+
+    .booking .booking-details {
         position: unset;
         width: 80%;
         margin: auto;
     }
+
     .booking .tour-desc h1 {
         font-size: 20px;
     }
+
     .booking .tour-desc h5 {
         font-size: 12px;
     }
+
     .booking .tour-desc h3 {
         font-size: 15px;
     }
+
     .booking .tour-desc p {
         font-size: 12px;
         line-height: 15px;
     }
+
     .tour-review-box h4 {
         font-size: 16px;
     }
+
     .tour-review-box button {
         font-size: 13px;
         width: 85px;
         height: 35px;
     }
+
     .tour-review-section .tour-reviews {
         margin-top: 50px;
     }
+
     .tour-review-section .tour-reviews .guest-logo {
         width: 25px;
         height: 25px;
     }
+
     .tour-review-section .tour-reviews h6 {
         font-size: 12px;
     }
@@ -489,6 +654,7 @@ color: rgb(58, 58, 58);
     .tour-review-section .tour-reviews small {
         font-size: 11px;
     }
+
     .tour-reviews-content p {
         font-size: 12px;
         line-height: 15px;
@@ -498,29 +664,37 @@ color: rgb(58, 58, 58);
     .booking-price span {
         font-size: 22px;
     }
-    .booking-price p{
+
+    .booking-price p {
         font-size: 12px;
     }
 
-    .booking-content .name , .booking-content .mobile {
-    font-size: 12px;
+    .booking-content .name,
+    .booking-content .mobile {
+        font-size: 12px;
     }
+
     .booking-content .date {
         font-size: 12px;
     }
+
     .booking-content .adults {
-        font-size: 12px;    
-    }
-    .booking-content .date-travel{
         font-size: 12px;
     }
-    .booking-footer p{
+
+    .booking-content .date-travel {
+        font-size: 12px;
+    }
+
+    .booking-footer p {
         font-size: 13px;
     }
-    .booking-footer .total p{
+
+    .booking-footer .total p {
         font-size: 13px;
     }
-    .booking-footer a{
+
+    .booking-footer a {
         font-size: 17px;
     }
 
@@ -531,15 +705,18 @@ color: rgb(58, 58, 58);
         margin-bottom: 40px;
     }
 
-    .rating-box{
+    .rating-box {
         width: 80%;
     }
+
     .rating-box .stars {
         gap: 20px;
     }
-    .stars i{
+
+    .stars i {
         font-size: 30px;
     }
+
     .rating-box header {
         font-size: 18px;
         color: black;
@@ -548,5 +725,34 @@ color: rgb(58, 58, 58);
         text-align: center;
     }
 
-}
+    .booked-successfully img {
+        width: 70px;
+        margin-top: -35px;
+    }
 
+    .booked-successfully h2 {
+        font-size: 25px;
+    }
+
+    .booked-successfully p {
+        font-size: 11px;
+    }
+
+    .booked-successfully button {
+        margin-top: 30px;
+        padding: 7px 0;
+    }
+
+
+    .booking-footer button {
+        background: var(--secondary-color);
+        border-radius: 30px;
+        color: black;
+        outline: none;
+        text-decoration: none;
+        border: none;
+        height: 30px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+}
