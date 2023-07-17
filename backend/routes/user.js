@@ -4,7 +4,9 @@ const userHelpers = require('../helpers/user-helpers')
 const Jwt = require('jsonwebtoken');
 const jwtKey='123';
 
-   
+
+
+
 router.post('/signup',async(req,res)=>{
     userHelpers.doSignup(req.body).then((user)=>{         
         Jwt.sign({user},jwtKey,{expiresIn:"30d"},(err,token)=>{
