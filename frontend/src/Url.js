@@ -1,1 +1,1 @@
-export const backend_url = "https://toursandtravels-ldzm.onrender.com"
+export const backend_url = "http://localhost:5001"

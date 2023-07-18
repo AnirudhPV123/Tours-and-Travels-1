@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userHelpers = require('../helpers/user-helpers')
 const Jwt = require('jsonwebtoken');
-const jwtKey='123';
+const jwtKey=`${process.env.JWT_KEY}`
 
 
 

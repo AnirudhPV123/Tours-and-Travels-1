@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const adminHelpers = require('../helpers/admin-helpers')
 const Jwt = require('jsonwebtoken');
-const jwtKey='123';
+const jwtKey=`${process.env.JWT_KEY}`
 
 router.post('/add-product',verifyToken,async(req,res)=>{
     adminHelpers.addProduct(req.body).then((response)=>{
