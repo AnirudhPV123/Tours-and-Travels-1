@@ -17,7 +17,7 @@
 }
 
 .admin-image {
-    flex-basis: 55%;
+    flex-basis: 55%;                    
     display: flex;
     align-items: center;
     justify-content: center;
