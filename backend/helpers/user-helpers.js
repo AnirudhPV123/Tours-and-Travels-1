@@ -160,7 +160,7 @@ module.exports = {
     return new Promise(async(resolve,reject)=>{
       var options={
         amount: total*100,
-        currency: "INR",
+        currency: "USD",
         receipt:""+orderId
       }
 
