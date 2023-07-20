@@ -21,11 +21,19 @@ function Featured() {
     getProduct()
   }, [])
 
+  var image
+  if(window.innerWidth<=450){
+     image = 'image200'
+  }else if((450<window.innerWidth)&&(window.innerWidth<=1200)){
+     image = 'image300'
+  }else if((1200<window.innerWidth)&&(window.innerWidth<=1500)){
+     image = 'image400'
+  }else if(window.innerWidth>1500){
+     image = 'image500'
+  }
 
-  const getProduct = () => {
-    Axios.get(`${backend_url}/api/user/get-products`, {
-
-    }).then((response) => {
+  const getProduct = async() => {
+    Axios.get(`${backend_url}/api/user/get-products/${image}`).then(async(response) => {
       setFeaturedProducts(response.data)
     })
   }

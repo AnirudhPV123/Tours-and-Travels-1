@@ -10,8 +10,8 @@ router.post('/add-product',verifyToken,async(req,res)=>{
     })
 })
 
-router.get('/get-products',verifyToken, async(req,res)=>{
-    adminHelpers.getProducts().then((products)=>{           
+router.get('/get-products/:image',verifyToken, async(req,res)=>{
+    adminHelpers.getProducts(req.params.image).then((products)=>{           
         if(products){
             res.send(products)
         }else{
@@ -30,8 +30,8 @@ router.delete('/delete-product/:id',verifyToken,async(req,res)=>{
     })
 })
 
-router.get('/get-product-details/:id',verifyToken,async(req,res)=>{
-    adminHelpers.getProductDetails(req.params.id).then((response)=>{
+router.get('/get-product-details/:id/:image',verifyToken,async(req,res)=>{
+    adminHelpers.getProductDetails(req.params.id,req.params.image).then((response)=>{
         if(response){
             res.send(response)
         }else{

@@ -30,6 +30,7 @@ function Signup() {
         setEmailErr(false)
       }
     } else {
+      console.log(password)
       Axios.post(`${backend_url}/api/user/signup`, {
         name,
         email,

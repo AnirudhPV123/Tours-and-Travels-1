@@ -46,7 +46,10 @@ function Booking() {
       setUserId(JSON.parse(auth)._id)
       setUserName(JSON.parse(auth).name)
 
+      
       if (location.state) {
+        getLoading('open')
+
         getProductDetails()
         getPoductReview()
       } else {
@@ -60,8 +63,19 @@ function Booking() {
 
   }, [])
 
+  var image
+  if(window.innerWidth<=450){
+     image = 'image400'
+  }else if((450<window.innerWidth)&&(window.innerWidth<=1200)){
+     image = 'image500'
+  }else if((1200<window.innerWidth)&&(window.innerWidth<=1500)){
+     image = 'image750'
+  }else if(window.innerWidth>1500){
+     image = 'image1000'
+  }
+
   const getProductDetails = () => {
-    Axios.get(`${backend_url}/api/user/book-now-details/${location.state.id}`, {
+    Axios.get(`${backend_url}/api/user/book-now-details/${location.state.id}/${image}`, {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
@@ -70,12 +84,22 @@ function Booking() {
         alert(details.data.result)
       }
       else if (details.data) {
-        setProductDetails(details.data)
-
+        setProductDetails(details.data[0])
+        getLoading()
       }
     })
   }
 
+  // loading
+  const getLoading=(loading)=>{
+    if(loading==='open'){
+      Swal.showLoading()
+    }else{
+      Swal.close()
+    }
+    
+    }
+                
 
   const getPoductReview = () => {
     Axios.get(`${backend_url}/api/user/get-reviews/${location.state.id}`, {

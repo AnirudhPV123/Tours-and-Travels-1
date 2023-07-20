@@ -11,6 +11,7 @@ function Cart() {
 
   const [userId, setUserId] = useState('')
   const [cartItems, setCartItems] = useState([])
+  const [noItems, setNoItems] = useState(false)
 
   useEffect(() => {
     const auth = localStorage.getItem('user')
@@ -20,20 +21,50 @@ function Cart() {
       const userId = JSON.parse(auth)._id;
       setUserId(userId)
 
+      getLoading('open')
       getCartItems(userId)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }, [])
 
+
+  var image
+  if(window.innerWidth<=450){
+     image = 'image200'
+  }else if((450<window.innerWidth)&&(window.innerWidth<=1200)){
+     image = 'image200'
+  }else if((1200<window.innerWidth)&&(window.innerWidth<=1500)){
+     image = 'image300'
+  }else if(window.innerWidth>1500){
+     image = 'image500'
+  }
+
+
   const getCartItems = (userId) => {
-    Axios.get(`${backend_url}/api/user/get-cart-items/${userId}`, {
+    Axios.get(`${backend_url}/api/user/get-cart-items/${userId}/${image}`, {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     }).then((response) => {
-      setCartItems(response.data)
+      if(response.data.length>0){
+        setCartItems(response.data)
+      }else{
+        setNoItems(true)
+        setCartItems(response.data)
+      }
+      getLoading()
     })
   }
+
+  // loading
+  const getLoading=(loading)=>{
+    if(loading==='open'){
+      Swal.showLoading()
+    }else{
+      Swal.close()
+    }
+  }
+
 
   const handleDelete = (productId) => {
 
@@ -74,7 +105,7 @@ function Cart() {
   return (
     <div className='cart' >
       <div className="cart-box">
-        {cartItems.length == 0 && <h2>Your Tour Cart is empty...</h2>}
+        {noItems && <h2>Your Tour Cart is empty...</h2>}
 
         {cartItems.map((obj, index) => {
           return (
@@ -83,15 +114,15 @@ function Cart() {
 
                 <div className="cart-row" key={index} >
                   <div className="cart-image">
-                    <img src={obj.product.postImage} style={{ aspectRatio: '3/2' }} alt="" />
+                    <img src={obj.postImage} style={{ aspectRatio: '3/2' }} alt="" />
                   </div>
                   <div className="cart-details">
-                    <h3>{obj.product.feature}</h3>
-                    <h4>{obj.product.place} , {obj.product.country}</h4>
-                    <p>{obj.product.desc}</p>
+                    <h3>{obj.feature}</h3>
+                    <h4>{obj.place} , {obj.country}</h4>
+                    <p>{obj.desc}</p>
                   </div>
                   <div className="price">
-                    <h3><span>$ {obj.product.price}</span>/person</h3>
+                    <h3><span>$ {obj.price}</span>/person</h3>
                   </div>
                   <div className="cart-buttons">
                     <button className='cart-buy' onClick={() => { navigate('/book-now', { state: { id: obj.productId } }) }} >Book Now</button>
@@ -102,16 +133,16 @@ function Cart() {
                 <div className='mobile-cart-row'>
                   <div className="mobile-top-details">
                     <div className="mobile-top-image">
-                      <img src="../../images/tokyo.webp" alt="" />
+                      <img src={obj.postImage} style={{aspectRatio:'3/2'}} alt="" />
                     </div>
                     <div className="mobile-top-text">
-                      <h3>Cherry Blossams</h3>
-                      <h4>Tokyo , Japan</h4>
-                      <h5><span>$324</span>/person</h5>
+                      <h3>{obj.feature}</h3>
+                      <h4>{obj.place} , {obj.country}</h4>
+                      <h5><span>{obj.price}</span>/person</h5>
                     </div>
                   </div>
                   <div className="mobile-top-desc">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <p>{obj.desc}</p>
                   </div>
                   <div className="cart-buttons">
                     <button className='cart-buy' onClick={() => { navigate('/book-now', { state: { id: obj.productId } }) }} >Book Now</button>

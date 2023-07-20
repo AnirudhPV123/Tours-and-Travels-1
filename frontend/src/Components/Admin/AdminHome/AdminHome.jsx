@@ -24,22 +24,41 @@ function AdminHome() {
 
     const admin = localStorage.getItem('admin')
     if (admin) {
+      getLoading('open')
+
       getProducts()
     } else {
       navigate('/admin/login')
     }
   }, [])
 
+  var image 
+  if(window.innerWidth<=1200){
+    image='image300'
+  }else{
+    image='image400'
+  }
+
   const getProducts = () => {
-    Axios.get(`${backend_url}/api/admin/get-products`, {
+    Axios.get(`${backend_url}/api/admin/get-products/${image}`, {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem('adminToken'))}`
       }
     }).then((response) => {
       setProducts(response.data)
+      getLoading()
     })
   }
 
+  // loading
+  const getLoading=(loading)=>{
+    if(loading==='open'){
+      Swal.showLoading()
+    }else{
+      Swal.close()
+    }
+    
+    }
 
 
 

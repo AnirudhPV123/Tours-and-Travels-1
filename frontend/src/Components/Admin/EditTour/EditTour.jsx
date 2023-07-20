@@ -16,6 +16,14 @@ function EditTour() {
   const [postImage, setPostImage] = useState('')
   const [error, setError] = useState(false)
 
+  const [image200, setImage200] = useState('')
+  const [image300, setImage300] = useState('')
+  const [image400, setImage400] = useState('')
+  const [image500, setImage500] = useState('')
+  const [image750, setImage750] = useState('')
+  const [image1000, setImage1000] = useState('')
+
+
   const navigate = useNavigate()
   let formRef = useRef();
 
@@ -31,25 +39,34 @@ function EditTour() {
     }
   }, [])
 
+
+  var image 
+  if(window.innerWidth<=1200){
+    image='image300'
+  }else{
+    image='image400'
+  }
+
   const getProductDetails = () => {
-    Axios.get(`${backend_url}/api/admin/get-product-details/${location.state.id}`, {
+    Axios.get(`${backend_url}/api/admin/get-product-details/${location.state.id}/${image}`, {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem('adminToken'))}`
       }
     }).then((response) => {
       if (response.data) {
-        setProductDetails(response.data)
+        setProductDetails(response.data[0])
 
-        setPlace(response.data.place)
-        setCountry(response.data.country)
-        setFeature(response.data.feature)
-        setPrice(response.data.price)
-        setDesc(response.data.desc)
-        setPostImage(response.data.postImage)
+        setPlace(response.data[0].place)
+        setCountry(response.data[0].country)
+        setFeature(response.data[0].feature)
+        setPrice(response.data[0].price)
+        setDesc(response.data[0].desc)
+        setPostImage(response.data[0].postImage)
 
       }
     })
   }
+
 
 
 
@@ -60,7 +77,12 @@ function EditTour() {
       feature,
       price,
       desc,
-      postImage
+      image200,
+      image300,
+      image400,
+      image500,
+      image750,
+      image1000  
     }
     Axios.post(`${backend_url}/api/admin/update-product/${productDetails._id}`, data, {
       headers: {
@@ -91,10 +113,52 @@ function EditTour() {
     }
   }
 
+
   const handleFileUpload = async (e) => {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
-    setPostImage(base64)
+    setPostImage(e.target.files[0])
+    let image_file = e.target.files[0]
+    let reader = new FileReader()
+    reader.readAsDataURL(image_file)
+    reader.onload = (event) => {
+      let image_url = event.target.result
+      let image = document.createElement("img")
+      image.src = image_url
+
+      image.onload = (e) => {
+        const setWidth = [200, 300, 400, 500, 750, 1000]
+
+        for (let i = 0; i <= setWidth.length; i++) {
+          let canvas = document.createElement("canvas")
+          let ratio = setWidth[i] / e.target.width
+          canvas.width = setWidth[i]
+          canvas.height = e.target.height * ratio
+
+          const context = canvas.getContext('2d')
+          context.drawImage(image, 0, 0, canvas.width, canvas.height)
+
+          let new_image_url = context.canvas.toDataURL("image/webp", 100)
+
+          if (i === 0) {
+            setImage200(new_image_url)
+          } else if (i === 1) {
+            setImage300(new_image_url)
+          } else if (i === 2) {
+            setImage400(new_image_url)
+          } else if (i === 3) {
+            setImage500(new_image_url)
+          } else if (i === 4) {
+            setImage750(new_image_url)
+          } else if (i === 5) {
+            setImage1000(new_image_url)
+          }
+        }
+
+        {
+
+        }
+      }
+
+    }
   }
 
 
@@ -129,15 +193,3 @@ function EditTour() {
 export default EditTour
 
 
-function convertToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result)
-    };
-    fileReader.onerror = (error) => {
-      reject(error)
-    }
-  })
-}

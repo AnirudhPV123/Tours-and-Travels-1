@@ -35,8 +35,8 @@ router.post('/login',async(req,res)=>{
     })
 })
              
-router.get('/get-products', async(req,res)=>{
-    userHelpers.getProducts().then((products)=>{           
+router.get('/get-products/:image', async(req,res)=>{
+    userHelpers.getProducts(req.params.image).then((products)=>{           
         if(products){
             res.send(products)
         }else{
@@ -46,8 +46,8 @@ router.get('/get-products', async(req,res)=>{
 })
 
 
-router.get('/book-now-details/:id',verifyToken, async(req,res)=>{
-    userHelpers.bookNowDetails(req.params.id).then((details)=>{
+router.get('/book-now-details/:id/:image',verifyToken, async(req,res)=>{
+    userHelpers.bookNowDetails(req.params.id,req.params.image).then((details)=>{
         
         if(details){
             res.send(details)
@@ -128,8 +128,8 @@ router.post('/add-to-cart',verifyToken,async(req,res)=>{
 })
 
 
-router.get('/get-cart-items/:id',verifyToken,async(req,res)=>{
-    userHelpers.getCartItems(req.params.id).then((response)=>{
+router.get('/get-cart-items/:id/:image',verifyToken,async(req,res)=>{
+    userHelpers.getCartItems(req.params.id,req.params.image).then((response)=>{
         if(response){
             res.send(response)
         }else{
@@ -144,7 +144,7 @@ router.post('/delete-cart-item',verifyToken,async(req,res)=>{
     })
 })
 
-router.get('/search/:q',async(req,res)=>{
+router.get('/search/:q/:image',async(req,res)=>{
 
     const keys = ["place", "country"];
 
@@ -154,12 +154,12 @@ router.get('/search/:q',async(req,res)=>{
       );
     };
 
-    userHelpers.getProducts().then((products)=>{
-        res.send(search(products))
+    userHelpers.getProducts(req.params.image).then((products)=>{
+        res.send(search(products))  
     })
     
 
-})
+})       
 
 
 router.post('/update-profile-image',verifyToken,async(req,res)=>{

@@ -36,6 +36,9 @@ function Header() {
   const [editInput, setEditInput] = useState(false)
 
   const [profileImage, setProfileImage] = useState('')
+  const [image75, setImage75] = useState('')
+    const [image125, setImage125] = useState('')
+
 
   // admin
   const [admin, setAdmin] = useState(false)
@@ -60,9 +63,6 @@ function Header() {
     checkToken()
     getAuth()
     getAdmin()
-
-
-
 
     return () => {
       document.removeEventListener("mousedown", handler);
@@ -157,12 +157,43 @@ function Header() {
 
 
   // profile image base64 
-  const handleProfileImage = async (e) => {
-    const file = e.target.files[0]
-    const base64 = await convertToBase64(file);
-    uploadProfileImage(base64)
+  // const handleProfileImage = async (e) => {
+  //   const file = e.target.files[0]
+  //   const base64 = await convertToBase64(file);
+  //   uploadProfileImage(base64)
 
+  // }
+
+
+  const handleProfileImage = async (e) => {
+    let image_file = e.target.files[0]
+    let reader = new FileReader()
+    reader.readAsDataURL(image_file)
+    reader.onload = (event) => {
+      let image_url = event.target.result
+      let image = document.createElement("img")
+      image.src = image_url
+
+      image.onload = (e) => {
+        const setWidth = 125
+
+          let canvas = document.createElement("canvas")
+          let ratio = setWidth / e.target.width
+          canvas.width = setWidth
+          canvas.height = e.target.height * ratio
+
+          const context = canvas.getContext('2d')
+          context.drawImage(image, 0, 0, canvas.width, canvas.height)
+
+          let new_image_url = context.canvas.toDataURL("image/webp", 100)
+         
+          uploadProfileImage(new_image_url)        
+      }
+
+    }
   }
+
+
 
 
   // profile image upload

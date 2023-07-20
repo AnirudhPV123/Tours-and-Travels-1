@@ -24,7 +24,7 @@ function AddAdmin() {
     }, [])
 
 
-    const handleSignup = (e) => {
+    const handleUplaod = (e) => {
         e.preventDefault();
 
         const email_pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -66,6 +66,7 @@ function AddAdmin() {
                 setError(false)
                 let inputs = document.getElementById('checkId');
                 inputs.checked = false;
+                setChecked(false)
             })
         }
 
@@ -73,7 +74,7 @@ function AddAdmin() {
     }
 
     const handleChange = () => {
-        setChecked(false);
+        setChecked(!checked);
     };
 
 
@@ -99,7 +100,7 @@ function AddAdmin() {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name='password' placeholder='Password' className='admin-password' /><br />
                     {error && !password && <div className="admin-error"><span className='input-validation' >Enter valid password</span></div>}
                     {password.length < 9 && password && <div className="admin-error"><span className='input-validation' >Password must contains 8 digits</span></div>}
-                    <button className='admin-btn' onClick={handleSignup} >Upload</button><br />
+                    <button className='admin-btn' onClick={handleUplaod} >Upload</button><br />
                 </div>
             </div>
         </div>

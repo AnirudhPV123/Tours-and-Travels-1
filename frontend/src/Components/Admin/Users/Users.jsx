@@ -6,6 +6,8 @@ import 'primereact/resources/primereact.css';
 import Axios from 'axios';
 import { backend_url } from '../../../Url';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 function Users() {
     const [users, setUsers] = useState([])
     const navigate = useNavigate()
@@ -15,6 +17,7 @@ function Users() {
         if (!admin) {
             navigate('/admin/login')
         } else {
+            getLoading('open')
             getUserDetails()
         }
     }, [])
@@ -29,9 +32,20 @@ function Users() {
                 alert("Something went wrong")
             } else {
                 setUsers(response.data)
+                getLoading()
             }
         })
     }
+
+    // loading
+    const getLoading=(loading)=>{
+        if(loading==='open'){
+          Swal.showLoading()
+        }else{
+          Swal.close()
+        }
+        
+        }
 
     return (
         <div style={{ width: '80%', margin: 'auto' }} >

@@ -6,6 +6,7 @@ import 'primereact/resources/primereact.css';
 import Axios from 'axios';
 import { backend_url } from '../../../Url';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function Booked() {
     const [bookedDetails, setBookedDetails] = useState([])
@@ -16,6 +17,7 @@ function Booked() {
         if (!admin) {
             navigate('/admin/login')
         } else {
+            getLoading('open')
             getBookedDetails()
         }
     }, [])
@@ -30,12 +32,23 @@ function Booked() {
                 alert("Something went wrong")
             } else {
                 setBookedDetails(response.data)
+                getLoading()
             }
         })
     }
 
+    // loading
+    const getLoading=(loading)=>{
+        if(loading==='open'){
+          Swal.showLoading()
+        }else{
+          Swal.close()
+        }
+        
+        }
+
     return (
-        <div style={{ width: '80%', margin: 'auto' }} >
+        <div style={{ width: '80%', margin: 'auto'}} >
             <DataTable value={bookedDetails} scrollHeight="100vh" tableStyle={{ minWidth: '100rem', marginTop: 20 }}>
                 <Column header="No." body={(data, options) => options.rowIndex + 1}></Column>
                 <Column field="name" header="Name"></Column>

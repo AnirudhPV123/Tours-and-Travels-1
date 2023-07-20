@@ -29,7 +29,7 @@ function Footer() {
                 <footer id="footer">
                     <div className="title-text">
                         <p>CONTACT</p>
-                        <h1>Anirudh's Travel</h1>
+                        <h1>KVA Travels</h1>
                     </div>
                     <div className="footer-row">
                         <img src="../../../images/logo-2.jpg" alt="" className="footer-img" />

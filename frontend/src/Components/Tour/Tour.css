@@ -70,6 +70,7 @@
     margin: auto;
     display: grid;
     gap: 1rem;
+    min-height: 100vh;
 }
 
 

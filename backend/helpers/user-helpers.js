@@ -53,25 +53,50 @@ module.exports = {
     })
   },
 
-  getProducts: () => {
+  getProducts: (image) => {
     return new Promise(async (resolve, reject) => {
       const db = await dbConnect()
-      db.collection(collections.PRODUCTS_COLLECTION).find().toArray().then((products) => {
+      db.collection(collections.PRODUCTS_COLLECTION).aggregate([
+        {
+          $project:{
+            place:'$place',
+            country:'$country',
+            feature:'$feature',
+            price:'$price',
+            desc:'$desc',
+            postImage:`$${image}`
+          }
+        }
+      ]).toArray().then((products) => {
         resolve(products)
       })
     })
-  },
+  },          
 
-  bookNowDetails: (id) => {
+  bookNowDetails: (id,image) => {
     return new Promise(async (resolve, reject) => {
       const db = await dbConnect()
-      db.collection(collections.PRODUCTS_COLLECTION).findOne({ _id: new objectId(id) }).then((details) => {
+      db.collection(collections.PRODUCTS_COLLECTION).aggregate([
+        {
+          $match:{ _id: new objectId(id)}
+        },
+        {
+          $project:{
+            place:'$place',
+            country:'$country',
+            feature:'$feature',
+            price:'$price',            
+            desc:'$desc',
+            postImage:`$${image}`
+          }
+        }                     
+      ]).toArray().then((details) => {
         try {
           resolve(details)
         } catch (err) {
           resolve()
         }
-      })
+      }) 
     })
   },
 
@@ -218,7 +243,7 @@ module.exports = {
   })
     },
 
-    getCartItems:(userId)=>{
+    getCartItems:(userId,image)=>{
       return new Promise(async(resolve,reject)=>{
         const db = await dbConnect()
         const cartItems = await db.collection(collections.CART_COLLECTION).aggregate([
@@ -246,9 +271,20 @@ module.exports = {
           },
           {
             $unwind:'$product'
+          },
+          {
+            $project:{
+              place:'$product.place',
+              country:'$product.country',
+              feature:'$product.feature',
+              price:'$product.price',                       
+              desc:'$product.desc',
+              postImage:`$product.${image}`,
+              productId:'$product._id'
+            }
           }
         ]).toArray()
-        try{
+        try{          
           resolve(cartItems)
         }catch(err){
           resolve()
@@ -313,14 +349,6 @@ module.exports = {
           $project:{profileImage:'$profileImage'}
         }
       ]).toArray().then((response)=>{
-        // console.log(response.profileImage)
-        //   if(response[0].profileImage){
-        //     resolve(response[0].profileImage)
-        //   }else{
-        //     resolve()
-        //   }
-
-        
         try{
           resolve(response[0].profileImage)
         }catch(err){

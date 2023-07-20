@@ -17,6 +17,7 @@ function AdminDetails() {
         if (!admin) {
             navigate('/admin/login')
         } else {
+            getLoading('open')
             getAdminDetails()
         }
     }, [])
@@ -31,11 +32,33 @@ function AdminDetails() {
                 alert("Something went wrong")
             } else {
                 setAdmins(response.data)
+                getLoading()
             }
         })
     }
 
+    // loading
+    const getLoading=(loading)=>{
+        if(loading==='open'){
+          Swal.showLoading()
+        }else{
+          Swal.close()
+        }
+        
+        }
+
     const handleAdminDelete = (adminId) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result)=>{
+
+        if(result.isConfirmed){
         Axios.delete(`${backend_url}/api/admin/admin-delete/${adminId}`, {
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('adminToken'))}`
@@ -55,9 +78,11 @@ function AdminDetails() {
             }
         })
     }
+    })
+    }
 
     const DeleteBodyTemplate = (admins) => {
-        return <button onClick={() => handleAdminDelete(admins._id)} style={{ width: 100, height: 35, backgroundColor: '#C63834', outline: 'none', border: 'none', borderRadius: 7, color: '#fff' }} >Delete</button>
+        return <button onClick={() => handleAdminDelete(admins._id)} style={{ width: 100, height: 35, backgroundColor: '#C63834', outline: 'none', border: 'none', borderRadius: 7, color: '#fff',cursor:'pointer' }} >Delete</button>
     }
 
     return (

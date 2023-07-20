@@ -16,10 +16,21 @@ module.exports={
         })
       },
 
-      getProducts: () => {
+      getProducts: (image) => {
         return new Promise(async (resolve, reject) => {
           const db = await dbConnect()
-          db.collection(collections.PRODUCTS_COLLECTION).find().toArray().then((products) => {
+          db.collection(collections.PRODUCTS_COLLECTION).aggregate([
+            {
+              $project:{
+                place:'$place',
+                country:'$country',
+                feature:'$feature',
+                price:'$price',
+                desc:'$desc',
+                postImage:`$${image}`
+              }
+            }
+          ]).toArray().then((products) => {
             resolve(products)
           })
         })
@@ -38,12 +49,33 @@ module.exports={
         })
       },
 
-      getProductDetails:(productId)=>{
+      getProductDetails:(productId,image)=>{
         return new Promise(async(resolve,reject)=>{
           const db = await dbConnect()
-          db.collection(collections.PRODUCTS_COLLECTION).findOne({_id:new objectId(productId)}).then((response)=>{
+          // db.collection(collections.PRODUCTS_COLLECTION).findOne({_id:new objectId(productId)}).then((response)=>{
+          //   try{
+          //     resolve(response)
+          //   }catch(err){
+          //     resolve()
+          //   }
+          // })
+          db.collection(collections.PRODUCTS_COLLECTION).aggregate([
+           {
+            $match:{_id:new objectId(productId)}
+           },
+            {
+              $project:{
+                place:'$place',
+                country:'$country',
+                feature:'$feature',
+                price:'$price',
+                desc:'$desc',
+                postImage:`$${image}`
+              }
+            }
+          ]).toArray().then((products) => {
             try{
-              resolve(response)
+              resolve(products)
             }catch(err){
               resolve()
             }
@@ -61,11 +93,16 @@ module.exports={
               feature:details.feature,
               price:details.price,
               desc:details.desc,
-              postImage:details.postImage
+              image200:details.image200,
+              image300:details.image300,
+              image400:details.image400,
+              image500:details.image500,
+              image750:details.image750,
+              image1000:details.image1000
             }}).then((response)=>{
             try{
               resolve(response)
-            }catch(err){
+            }catch(err){          
               resolve()
             }
           })
