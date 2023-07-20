@@ -153,14 +153,14 @@ module.exports = {
       })
     })
   },
-
+         
   // razorpay integration
 
   generateRazorpay:(orderId,total)=>{
     return new Promise(async(resolve,reject)=>{
       var options={
         amount: total*100,
-        currency: "INR",
+        currency: "USD",
         receipt:""+orderId
       }
 

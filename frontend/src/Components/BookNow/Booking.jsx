@@ -194,8 +194,8 @@ function Booking() {
     var options = {
       "key": "rzp_test_XAAAhfxcIqO2ZJ", // Enter the Key ID generated from the Dashboard
       "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      "currency": "INR",
-      "name": "Anirudh's Travels",
+      "currency": "USD",
+      "name": "KVA Travels",
       "description": "Test Transaction",
       "image": "../../../images/logo-2.jpg",
       "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -504,7 +504,7 @@ function Booking() {
 
               <div className="total">
                 <p>Total</p>
-                {!personLimit && <p>${productDetails.price * noOfPersons + 10}</p>}
+                {!personLimit && <p>${productDetails.price * noOfPersons}</p>}
                 {personLimit && <p>$ 0</p>}
               </div>
 
