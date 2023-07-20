@@ -82,7 +82,7 @@ if(loading==='open'){
               <div className="image">
                 <img src={obj.postImage} style={{ aspectRatio: '3/2' }} alt='tour image' />
                 <h4>Featured</h4>
-              </div>
+              </div> 
               <div className="desc">
                 <h6>{obj.place} , {obj.country}</h6>
                 <h3>{obj.feature}</h3>
