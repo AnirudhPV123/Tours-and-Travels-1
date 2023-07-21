@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { backend_url } from '../../../Url'
+import Swal from 'sweetalert2'
+
 
 function AdminLogin() {
   const [email, setEmail] = useState('')
@@ -25,6 +27,13 @@ function AdminLogin() {
           navigate('/admin')
           localStorage.setItem('admin', JSON.stringify(response.data.admin))
           localStorage.setItem('adminToken', JSON.stringify(response.data.auth))
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'LoggedIn successfully...',
+            showConfirmButton: false,
+            timer: 1500
+          })
         } else {
           setUser(false)
         }
@@ -45,7 +54,6 @@ function AdminLogin() {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} name='password' placeholder='Password' className='login-password' /><br />
           {error && !password && <div className="login-error"><span className='input-validation' >Enter valid password</span></div>}
           <button className='login-btn' onClick={handleLogin}>Login</button><br />
-          <small>Create an account ? <span onClick={() => navigate('/signup')}>SignUp</span></small>
         </div>
       </div>
     </div>

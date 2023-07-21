@@ -3,6 +3,7 @@ import './Login.css'
 import Axios from 'axios'
 import { backend_url } from '../../Url'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -26,6 +27,13 @@ function Login() {
           navigate('/')
           localStorage.setItem('user', JSON.stringify(response.data.user))
           localStorage.setItem('token', JSON.stringify(response.data.auth))
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'LoggedIn successfully...',
+            showConfirmButton: false,
+            timer: 1500
+          })
         } else {
           setUser(false)
         }

@@ -77,11 +77,6 @@ function Cart() {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
         deleteItem(productId)
       }
     })
@@ -98,6 +93,13 @@ function Cart() {
       }
     }).then(() => {
       getCartItems(userId)
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your cart item has been deleted...',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
   }
 
@@ -105,7 +107,7 @@ function Cart() {
   return (
     <div className='cart' >
       <div className="cart-box">
-        {noItems && <h2>Your Tour Cart is empty...</h2>}
+        {noItems && <h2  >Your Tour Cart is empty...</h2>}
 
         {cartItems.map((obj, index) => {
           return (
