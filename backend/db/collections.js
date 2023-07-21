@@ -5,4 +5,4 @@ module.exports={
     REVIEW_COLLECTION:'review',
     CART_COLLECTION:'cart',
     ADMIN_COLLECTION:'admin'
-}
+}           
