@@ -466,6 +466,7 @@ function Booking() {
           </div>
           <div className="booking-part">
             {err && (!name || !mobile || !dateOfBirth || !noOfPersons || !tourDate || !payment) && <h4 className='booking-details-err' >Every coloumn must be required...</h4>}
+            <h2>Personal Details</h2>
             <div className="booking-content">
               <form action="" className='content-box'>
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Full name' className='name' />

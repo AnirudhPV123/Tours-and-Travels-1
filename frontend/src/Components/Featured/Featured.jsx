@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 function Featured() {
   const [featuredProducts, setFeaturedProducts] = useState([])
   const [cardLimit, setCardLimit] = useState(null)
+  const [noProduct, setNoProduct] = useState(false)
 
   const navigate = useNavigate()
 
@@ -17,6 +18,8 @@ function Featured() {
     } else {
       setCardLimit(8)
     }
+
+    setNoProduct(true)
 
     getProduct()
   }, [])
@@ -34,9 +37,11 @@ function Featured() {
 
   const getProduct = async() => {
     Axios.get(`${backend_url}/api/user/get-products/${image}`).then(async(response) => {
+      setNoProduct(false)
       setFeaturedProducts(response.data)
     })
   }
+
 
 
   return (
@@ -46,6 +51,26 @@ function Featured() {
           <p>Explore</p>
           <h1>Our Featured Tours</h1>
         </div>
+
+      <div className="featureToursLoading">
+      {noProduct && 
+      <>
+      <div className="featureToursLoading">
+
+<div class="loader">
+<div class="loader--dot"></div>
+<div class="loader--dot"></div>
+<div class="loader--dot"></div>
+<div class="loader--dot"></div>
+<div class="loader--dot"></div>
+<div class="loader--dot"></div>
+<div class="loader--text"></div>
+</div>
+</div>
+  </>
+  } 
+      </div>
+
         <div className="cards">
 
           {featuredProducts.map((obj, index) => {
